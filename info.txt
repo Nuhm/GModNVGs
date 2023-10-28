@@ -1,0 +1,8 @@
+"AddonInfo"
+{
+   "name"          "[nuhm] NVG"
+   "version"       "1.0"
+   "up_date"       "27/10/23"
+   "author_name"   "Mikey"
+   "description"   "Night vision plugin."
+}

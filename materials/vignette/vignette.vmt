@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "vignette/vignette"
+	"$translucent" 1
+}
