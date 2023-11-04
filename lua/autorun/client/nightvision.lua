@@ -11,7 +11,7 @@ local function CreateNightVisionLight()
     local player = LocalPlayer()
     if not IsValid(player) then return end
 
-    local lightModel = ents.CreateClientProp("models/props_c17/light_bulkhead.mdl")
+    local lightModel = ents.CreateClientProp("models/props_c17/lampShade001a.mdl")
     lightModel:SetPos(player:GetPos() + Vector(0, 0, 10))  -- Adjust the position as needed
     lightModel:SetParent(player)
     lightModel:SetNoDraw(true)
@@ -83,13 +83,22 @@ end)
 
 -- Modify the DrawHUD function to apply the night vision shader and light effect
 hook.Add("HUDPaint", "DrawNightVision", function()
-   if nightVisionEnabled then
-       cam.Start2D()
-       cam.IgnoreZ(true)
-       surface.SetMaterial(nightVisionShader)  -- Your NVG shader material
-       surface.SetDrawColor(255, 255, 255, 255)
-       surface.DrawTexturedRect(0, 0, ScrW(), ScrH())
-       cam.IgnoreZ(false)
-       cam.End2D()
-   end
-end)
+    if nightVisionEnabled then
+        cam.Start2D()
+        cam.IgnoreZ(true)
+        DrawColorModify({
+            ["$pp_colour_brightness"] = 0.3,
+            ["$pp_colour_contrast"] = 1.2,
+            ["$pp_colour_colour"] = 0.37,
+            ["$pp_colour_addr"] = -1,
+            ["$pp_colour_addg"] = 0.1,
+            ["$pp_colour_addb"] = 0
+        })
+        surface.SetMaterial(nightVisionShader)  -- Your NVG shader material
+        surface.SetDrawColor(255, 255, 255, 255)
+        surface.DrawTexturedRect(0, 0, ScrW(), ScrH())
+        cam.IgnoreZ(false)
+        cam.End2D()
+    end
+ end)
+ 

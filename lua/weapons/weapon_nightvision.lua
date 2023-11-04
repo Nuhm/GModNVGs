@@ -49,9 +49,6 @@ function SWEP:PrimaryAttack()
            owner:ScreenFade(1, color_white, 0.5, 0.2)
            owner:EmitSound("items/nvg_on.wav")
        else
-           if owner:GetNWBool("ActiveNVG") then
-               ToggNVG(owner, false)
-           end
            owner:SetNWBool("WearingNVG", false)
            net.Send(owner)
            owner:ScreenFade(1, color_black, 0.5, 0.2)
