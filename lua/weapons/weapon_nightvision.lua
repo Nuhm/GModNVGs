@@ -3,8 +3,8 @@ if SERVER then
 end
 
 SWEP.PrintName = "Night Vision Goggles"
-SWEP.Author = "Your Name"
-SWEP.Category = "Your Category"
+SWEP.Author = "[nuhm] Mikey"
+SWEP.Category = "[nuhm] Mikey's Collection"
 SWEP.Slot = 4
 SWEP.SlotPos = 1
 SWEP.Spawnable = true
